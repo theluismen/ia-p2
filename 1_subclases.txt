@@ -1,0 +1,61 @@
+# No incluye la subclase Falso9 (herencia múltiple de Mediocentro y DelanteroCentro)
+
+Persona
+	Jugador
+	CuerpoTécnico
+		Entrenador
+		Asistente
+	Directivo
+		DirectorDeportivo
+		Presidente
+	Árbitro
+		ÁrbitroPrincipal
+		ÁrbitroAsistente
+		ÁrbitroVAR
+	AgenteDeportivo
+Posición
+	Portero
+	Defensa
+		DefensaCentral
+		LateralDerecho
+		LateralIzquierdo
+	Centrocampista
+		Mediocentro
+		Interior
+		Mediapunta
+	Delantero
+		Extremo
+		SegundoDelantero
+		DelanteroCentro
+Evento
+	Partido
+	Entrenamiento
+	Lesión
+	IncidenteDeJuego
+		Falta
+		FueraDeJuego
+		Sanción
+			Tarjeta
+				TarjetaAmarilla
+				TarjetaRoja
+		DecisiónArbitral
+			Penalti
+			RevisiónVAR
+		Gol
+			GolDePenalti
+			GolEnPropia
+		Sustitución
+Competición
+	Liga
+		PrimeraDivisión
+		SegundaDivisión
+	Torneo
+		CopaNacional
+		CopaInternacional
+	Amistoso
+Organización
+	ConfederaciónContinental
+	FederaciónNacional
+	Club
+		ClubProfesional
+		ClubAmateur

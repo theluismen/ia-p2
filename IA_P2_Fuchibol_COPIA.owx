@@ -205,9 +205,6 @@
         <ObjectProperty IRI="#esEntrenadoPor"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#esJugadoPor"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#esOrganizadaPor"/>
     </Declaration>
     <Declaration>
@@ -220,9 +217,6 @@
         <ObjectProperty IRI="#juegaEn"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#militaEn"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#organiza"/>
     </Declaration>
     <Declaration>
@@ -230,36 +224,6 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#representaA"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#capacidadEstadio"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#dorsal"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#esCapitan"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#fechaNacimiento"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#fundadoEn"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#integrantes"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#minutoDeIncidente"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#nombreCompleto"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#resultadoFinal"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#valorDeMercado"/>
     </Declaration>
     <SubClassOf>
         <Class IRI="#AgenteDeportivo"/>
@@ -280,27 +244,6 @@
     <SubClassOf>
         <Class IRI="#Club"/>
         <Class IRI="#Organización"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Club"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#militaEn"/>
-            <Class IRI="#Liga"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Club"/>
-        <DataMinCardinality cardinality="5000">
-            <DataProperty IRI="#capacidadEstadio"/>
-            <Datatype abbreviatedIRI="xsd:int"/>
-        </DataMinCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Club"/>
-        <DataMinCardinality cardinality="11">
-            <DataProperty IRI="#integrantes"/>
-            <Datatype abbreviatedIRI="xsd:int"/>
-        </DataMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#ClubAmateur"/>
@@ -359,13 +302,6 @@
         <Class IRI="#CuerpoTécnico"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Entrenador"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#entrenaA"/>
-            <Class IRI="#Club"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Entrenamiento"/>
         <Class IRI="#Evento"/>
     </SubClassOf>
@@ -382,26 +318,12 @@
         <Class IRI="#Mediocentro"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Falso9"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#juegaDe"/>
-            <Class IRI="#Mediocentro"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Falta"/>
         <Class IRI="#IncidenteDeJuego"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#FederaciónNacional"/>
         <Class IRI="#Organización"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#FederaciónNacional"/>
-        <ObjectMinCardinality cardinality="1">
-            <ObjectProperty IRI="#organiza"/>
-            <Class IRI="#Competición"/>
-        </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#FueraDeJuego"/>
@@ -432,34 +354,6 @@
         <Class IRI="#Persona"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Jugador"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#juegaEn"/>
-            <Class IRI="#Club"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Jugador"/>
-        <ObjectMaxCardinality cardinality="2">
-            <ObjectProperty IRI="#juegaDe"/>
-            <Class IRI="#Posición"/>
-        </ObjectMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Jugador"/>
-        <DataMinCardinality cardinality="1">
-            <DataProperty IRI="#dorsal"/>
-            <Datatype abbreviatedIRI="xsd:int"/>
-        </DataMinCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Jugador"/>
-        <DataMaxCardinality cardinality="99">
-            <DataProperty IRI="#dorsal"/>
-            <Datatype abbreviatedIRI="xsd:int"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#LateralDerecho"/>
         <Class IRI="#Defensa"/>
     </SubClassOf>
@@ -486,13 +380,6 @@
     <SubClassOf>
         <Class IRI="#Partido"/>
         <Class IRI="#Evento"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Partido"/>
-        <ObjectExactCardinality cardinality="2">
-            <ObjectProperty IRI="#esJugadoPor"/>
-            <Class IRI="#Club"/>
-        </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Penalti"/>
@@ -687,10 +574,6 @@
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#militaEn"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
         <ObjectProperty IRI="#organiza"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
@@ -773,10 +656,6 @@
         <Class IRI="#Club"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#esJugadoPor"/>
-        <Class IRI="#Partido"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#esOrganizadaPor"/>
         <Class IRI="#Competición"/>
     </ObjectPropertyDomain>
@@ -791,10 +670,6 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#juegaEn"/>
         <Class IRI="#Jugador"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#militaEn"/>
-        <Class IRI="#Club"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#organiza"/>
@@ -825,10 +700,6 @@
         <Class IRI="#Entrenador"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#esJugadoPor"/>
-        <Class IRI="#Club"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#esOrganizadaPor"/>
         <Class IRI="#Organización"/>
     </ObjectPropertyRange>
@@ -845,10 +716,6 @@
         <Class IRI="#Club"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#militaEn"/>
-        <Class IRI="#Liga"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#organiza"/>
         <Class IRI="#Competición"/>
     </ObjectPropertyRange>
@@ -860,120 +727,6 @@
         <ObjectProperty IRI="#representaA"/>
         <Class IRI="#Jugador"/>
     </ObjectPropertyRange>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#fundadoEn"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <FunctionalDataProperty>
-        <DataProperty IRI="#capacidadEstadio"/>
-    </FunctionalDataProperty>
-    <FunctionalDataProperty>
-        <DataProperty IRI="#dorsal"/>
-    </FunctionalDataProperty>
-    <FunctionalDataProperty>
-        <DataProperty IRI="#esCapitan"/>
-    </FunctionalDataProperty>
-    <FunctionalDataProperty>
-        <DataProperty IRI="#fechaNacimiento"/>
-    </FunctionalDataProperty>
-    <FunctionalDataProperty>
-        <DataProperty IRI="#fundadoEn"/>
-    </FunctionalDataProperty>
-    <FunctionalDataProperty>
-        <DataProperty IRI="#integrantes"/>
-    </FunctionalDataProperty>
-    <FunctionalDataProperty>
-        <DataProperty IRI="#minutoDeIncidente"/>
-    </FunctionalDataProperty>
-    <FunctionalDataProperty>
-        <DataProperty IRI="#nombreCompleto"/>
-    </FunctionalDataProperty>
-    <FunctionalDataProperty>
-        <DataProperty IRI="#resultadoFinal"/>
-    </FunctionalDataProperty>
-    <FunctionalDataProperty>
-        <DataProperty IRI="#valorDeMercado"/>
-    </FunctionalDataProperty>
-    <DataPropertyDomain>
-        <DataProperty IRI="#capacidadEstadio"/>
-        <Class IRI="#Club"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#dorsal"/>
-        <Class IRI="#Jugador"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#esCapitan"/>
-        <Class IRI="#Jugador"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#fechaNacimiento"/>
-        <Class IRI="#Persona"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#fundadoEn"/>
-        <Class IRI="#Organización"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#integrantes"/>
-        <Class IRI="#Club"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#minutoDeIncidente"/>
-        <Class IRI="#IncidenteDeJuego"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#nombreCompleto"/>
-        <Class IRI="#Persona"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#resultadoFinal"/>
-        <Class IRI="#Partido"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#valorDeMercado"/>
-        <Class IRI="#Jugador"/>
-    </DataPropertyDomain>
-    <DataPropertyRange>
-        <DataProperty IRI="#capacidadEstadio"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#dorsal"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#esCapitan"/>
-        <Datatype abbreviatedIRI="xsd:boolean"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#fechaNacimiento"/>
-        <Datatype abbreviatedIRI="xsd:dateTime"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#fundadoEn"/>
-        <Datatype abbreviatedIRI="xsd:dateTime"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#integrantes"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#minutoDeIncidente"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#nombreCompleto"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#resultadoFinal"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#valorDeMercado"/>
-        <Datatype abbreviatedIRI="xsd:float"/>
-    </DataPropertyRange>
 </Ontology>
 
 
