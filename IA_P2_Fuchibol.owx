@@ -549,6 +549,28 @@
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#IncidenteDeJuego"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#minutoDeIncidente"/>
+            <DatatypeRestriction>
+                <Datatype abbreviatedIRI="xsd:integer"/>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+                </FacetRestriction>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">120</Literal>
+                </FacetRestriction>
+            </DatatypeRestriction>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IncidenteDeJuego"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#minutoDeIncidente"/>
+            <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Interior"/>
         <Class IRI="#Centrocampista"/>
     </SubClassOf>
@@ -572,17 +594,32 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Jugador"/>
-        <DataMinCardinality cardinality="1">
+        <DataSomeValuesFrom>
             <DataProperty IRI="#dorsal"/>
-            <Datatype abbreviatedIRI="xsd:int"/>
+            <DatatypeRestriction>
+                <Datatype abbreviatedIRI="xsd:integer"/>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#minInclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1</Literal>
+                </FacetRestriction>
+                <FacetRestriction facet="http://www.w3.org/2001/XMLSchema#maxInclusive">
+                    <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">99</Literal>
+                </FacetRestriction>
+            </DatatypeRestriction>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Jugador"/>
+        <DataMinCardinality cardinality="1">
+            <DataProperty IRI="#valorDeMercado"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
         </DataMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Jugador"/>
-        <DataMaxCardinality cardinality="99">
+        <DataExactCardinality cardinality="1">
             <DataProperty IRI="#dorsal"/>
             <Datatype abbreviatedIRI="xsd:int"/>
-        </DataMaxCardinality>
+        </DataExactCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#LateralDerecho"/>
