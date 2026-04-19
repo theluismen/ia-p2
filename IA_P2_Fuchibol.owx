@@ -208,6 +208,9 @@
         <ObjectProperty IRI="#esJugadoPor"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#esMarcadoPor"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#esOrganizadaPor"/>
     </Declaration>
     <Declaration>
@@ -220,6 +223,9 @@
         <ObjectProperty IRI="#juegaEn"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#lesionDe"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#militaEn"/>
     </Declaration>
     <Declaration>
@@ -230,6 +236,15 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#representaA"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#señalaDecision"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sustituido"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sustituye"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#capacidadEstadio"/>
@@ -262,19 +277,79 @@
         <DataProperty IRI="#valorDeMercado"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#AlbaceteFC"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Arbitro1"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#CopaDelRey"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#DefensaCentral"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#DelanteroCentro"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Extremo"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#FCBarcelona"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Falso9"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Gavi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#HansiFlick"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Interior"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#LaLiga"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#LaLiga2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#LateralDerecho"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#LateralIzquierdo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mediapunta"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mediocentro"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PartidoClasico"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Pedri"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#PolAlfonso"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Portero"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#RFEF"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#RealMadrid"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SegundoDelantero"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sustitucionClasico"/>
     </Declaration>
     <SubClassOf>
         <Class IRI="#AgenteDeportivo"/>
@@ -305,13 +380,6 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Club"/>
-        <DataMinCardinality cardinality="5000">
-            <DataProperty IRI="#capacidadEstadio"/>
-            <Datatype abbreviatedIRI="xsd:int"/>
-        </DataMinCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Club"/>
         <DataMinCardinality cardinality="11">
             <DataProperty IRI="#integrantes"/>
             <Datatype abbreviatedIRI="xsd:int"/>
@@ -322,8 +390,29 @@
         <Class IRI="#Club"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#ClubAmateur"/>
+        <DataMinCardinality cardinality="2000">
+            <DataProperty IRI="#capacidadEstadio"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#ClubProfesional"/>
         <Class IRI="#Club"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ClubProfesional"/>
+        <DataMinCardinality cardinality="5000">
+            <DataProperty IRI="#capacidadEstadio"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Competición"/>
+        <ObjectMinCardinality cardinality="1">
+            <ObjectProperty IRI="#esOrganizadaPor"/>
+            <Class IRI="#Organización"/>
+        </ObjectMinCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#ConfederaciónContinental"/>
@@ -385,6 +474,13 @@
         <Class IRI="#Evento"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Entrenamiento"/>
+        <DataMinCardinality cardinality="10">
+            <DataProperty IRI="#integrantes"/>
+            <Datatype abbreviatedIRI="xsd:int"/>
+        </DataMinCardinality>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Extremo"/>
         <Class IRI="#Delantero"/>
     </SubClassOf>
@@ -427,6 +523,13 @@
         <Class IRI="#IncidenteDeJuego"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Gol"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#esMarcadoPor"/>
+            <Class IRI="#Jugador"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#GolDePenalti"/>
         <Class IRI="#Gol"/>
     </SubClassOf>
@@ -437,6 +540,13 @@
     <SubClassOf>
         <Class IRI="#IncidenteDeJuego"/>
         <Class IRI="#Evento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IncidenteDeJuego"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#señalaDecision"/>
+            <Class IRI="#Árbitro"/>
+        </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Interior"/>
@@ -485,6 +595,13 @@
     <SubClassOf>
         <Class IRI="#Lesión"/>
         <Class IRI="#Evento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lesión"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#lesionDe"/>
+            <Class IRI="#Jugador"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Liga"/>
@@ -544,6 +661,20 @@
     <SubClassOf>
         <Class IRI="#Sustitución"/>
         <Class IRI="#IncidenteDeJuego"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sustitución"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#sustituido"/>
+            <Class IRI="#Jugador"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sustitución"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#sustituye"/>
+            <Class IRI="#Jugador"/>
+        </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Tarjeta"/>
@@ -681,29 +812,184 @@
         <Class IRI="#ÁrbitroVAR"/>
     </DisjointClasses>
     <ClassAssertion>
+        <Class IRI="#ClubAmateur"/>
+        <NamedIndividual IRI="#AlbaceteFC"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Árbitro"/>
+        <NamedIndividual IRI="#Arbitro1"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#CopaNacional"/>
         <NamedIndividual IRI="#CopaDelRey"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DefensaCentral"/>
+        <NamedIndividual IRI="#DefensaCentral"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#DelanteroCentro"/>
+        <NamedIndividual IRI="#DelanteroCentro"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Extremo"/>
+        <NamedIndividual IRI="#Extremo"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#ClubProfesional"/>
         <NamedIndividual IRI="#FCBarcelona"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Falso9"/>
+        <NamedIndividual IRI="#Falso9"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Jugador"/>
+        <NamedIndividual IRI="#Gavi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Entrenador"/>
+        <NamedIndividual IRI="#HansiFlick"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Interior"/>
+        <NamedIndividual IRI="#Interior"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#PrimeraDivisión"/>
         <NamedIndividual IRI="#LaLiga"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SegundaDivisión"/>
+        <NamedIndividual IRI="#LaLiga2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LateralDerecho"/>
+        <NamedIndividual IRI="#LateralDerecho"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#LateralIzquierdo"/>
+        <NamedIndividual IRI="#LateralIzquierdo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Mediapunta"/>
+        <NamedIndividual IRI="#Mediapunta"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Mediocentro"/>
+        <NamedIndividual IRI="#Mediocentro"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Partido"/>
+        <NamedIndividual IRI="#PartidoClasico"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Jugador"/>
         <NamedIndividual IRI="#Pedri"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#AgenteDeportivo"/>
+        <NamedIndividual IRI="#PolAlfonso"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Portero"/>
+        <NamedIndividual IRI="#Portero"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#FederaciónNacional"/>
         <NamedIndividual IRI="#RFEF"/>
     </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ClubProfesional"/>
+        <NamedIndividual IRI="#RealMadrid"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SegundoDelantero"/>
+        <NamedIndividual IRI="#SegundoDelantero"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Sustitución"/>
+        <NamedIndividual IRI="#sustitucionClasico"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#militaEn"/>
+        <NamedIndividual IRI="#AlbaceteFC"/>
+        <NamedIndividual IRI="#LaLiga2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#arbitra"/>
+        <NamedIndividual IRI="#Arbitro1"/>
+        <NamedIndividual IRI="#PartidoClasico"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#esOrganizadaPor"/>
+        <NamedIndividual IRI="#CopaDelRey"/>
+        <NamedIndividual IRI="#RFEF"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#esEntrenadoPor"/>
+        <NamedIndividual IRI="#FCBarcelona"/>
+        <NamedIndividual IRI="#HansiFlick"/>
+    </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#militaEn"/>
         <NamedIndividual IRI="#FCBarcelona"/>
         <NamedIndividual IRI="#LaLiga"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#juegaDe"/>
+        <NamedIndividual IRI="#Falso9"/>
+        <NamedIndividual IRI="#Mediocentro"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#juegaDe"/>
+        <NamedIndividual IRI="#Gavi"/>
+        <NamedIndividual IRI="#Mediocentro"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#juegaEn"/>
+        <NamedIndividual IRI="#Gavi"/>
+        <NamedIndividual IRI="#FCBarcelona"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#entrenaA"/>
+        <NamedIndividual IRI="#HansiFlick"/>
+        <NamedIndividual IRI="#FCBarcelona"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#esOrganizadaPor"/>
+        <NamedIndividual IRI="#LaLiga"/>
+        <NamedIndividual IRI="#RFEF"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#esOrganizadaPor"/>
+        <NamedIndividual IRI="#LaLiga2"/>
+        <NamedIndividual IRI="#RFEF"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#esJugadoPor"/>
+        <NamedIndividual IRI="#PartidoClasico"/>
+        <NamedIndividual IRI="#FCBarcelona"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#esJugadoPor"/>
+        <NamedIndividual IRI="#PartidoClasico"/>
+        <NamedIndividual IRI="#RealMadrid"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#esRepresentadoPor"/>
+        <NamedIndividual IRI="#Pedri"/>
+        <NamedIndividual IRI="#PolAlfonso"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#juegaDe"/>
+        <NamedIndividual IRI="#Pedri"/>
+        <NamedIndividual IRI="#Mediapunta"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#juegaDe"/>
+        <NamedIndividual IRI="#Pedri"/>
+        <NamedIndividual IRI="#Mediocentro"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#juegaEn"/>
@@ -711,10 +997,45 @@
         <NamedIndividual IRI="#FCBarcelona"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#representaA"/>
+        <NamedIndividual IRI="#PolAlfonso"/>
+        <NamedIndividual IRI="#Pedri"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#organiza"/>
         <NamedIndividual IRI="#RFEF"/>
         <NamedIndividual IRI="#CopaDelRey"/>
     </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#organiza"/>
+        <NamedIndividual IRI="#RFEF"/>
+        <NamedIndividual IRI="#LaLiga"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#militaEn"/>
+        <NamedIndividual IRI="#RealMadrid"/>
+        <NamedIndividual IRI="#LaLiga"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sustituido"/>
+        <NamedIndividual IRI="#sustitucionClasico"/>
+        <NamedIndividual IRI="#Pedri"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sustituye"/>
+        <NamedIndividual IRI="#sustitucionClasico"/>
+        <NamedIndividual IRI="#Gavi"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#capacidadEstadio"/>
+        <NamedIndividual IRI="#AlbaceteFC"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">3500</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#integrantes"/>
+        <NamedIndividual IRI="#AlbaceteFC"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">23</Literal>
+    </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#capacidadEstadio"/>
         <NamedIndividual IRI="#FCBarcelona"/>
@@ -727,8 +1048,48 @@
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#dorsal"/>
+        <NamedIndividual IRI="#Gavi"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">12</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#dorsal"/>
         <NamedIndividual IRI="#Pedri"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">8</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#esCapitan"/>
+        <NamedIndividual IRI="#Pedri"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#fechaNacimiento"/>
+        <NamedIndividual IRI="#Pedri"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2002-11-25T02:50:00Z</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nombreCompleto"/>
+        <NamedIndividual IRI="#Pedri"/>
+        <Literal>Pedro González López</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#valorDeMercado"/>
+        <NamedIndividual IRI="#Pedri"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">150000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#capacidadEstadio"/>
+        <NamedIndividual IRI="#RealMadrid"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">60000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#fundadoEn"/>
+        <NamedIndividual IRI="#RealMadrid"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1900</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#integrantes"/>
+        <NamedIndividual IRI="#RealMadrid"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">22</Literal>
     </DataPropertyAssertion>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#arbitra"/>
@@ -747,6 +1108,10 @@
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#esMarcadoPor"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#esOrganizadaPor"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
@@ -756,6 +1121,10 @@
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#juegaEn"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#lesionDe"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
@@ -772,6 +1141,18 @@
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#representaA"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#señalaDecision"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#sustituido"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#sustituye"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <InverseObjectProperties>
@@ -849,6 +1230,10 @@
         <Class IRI="#Partido"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#esMarcadoPor"/>
+        <Class IRI="#Gol"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#esOrganizadaPor"/>
         <Class IRI="#Competición"/>
     </ObjectPropertyDomain>
@@ -865,6 +1250,13 @@
         <Class IRI="#Jugador"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#lesionDe"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#lesionDe"/>
+            <Class IRI="#Jugador"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#militaEn"/>
         <Class IRI="#Club"/>
     </ObjectPropertyDomain>
@@ -879,6 +1271,18 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#representaA"/>
         <Class IRI="#AgenteDeportivo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#señalaDecision"/>
+        <Class IRI="#IncidenteDeJuego"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#sustituido"/>
+        <Class IRI="#Jugador"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#sustituye"/>
+        <Class IRI="#Jugador"/>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#arbitra"/>
@@ -899,6 +1303,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#esJugadoPor"/>
         <Class IRI="#Club"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#esMarcadoPor"/>
+        <Class IRI="#Jugador"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#esOrganizadaPor"/>
@@ -930,6 +1338,18 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#representaA"/>
+        <Class IRI="#Jugador"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#señalaDecision"/>
+        <Class IRI="#Árbitro"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#sustituido"/>
+        <Class IRI="#Jugador"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#sustituye"/>
         <Class IRI="#Jugador"/>
     </ObjectPropertyRange>
     <SubDataPropertyOf>
@@ -1048,8 +1468,29 @@
     </DataPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Club</IRI>
+        <Literal>Con la restricción de integrantes representamos que un club amateur debería tener 11 o más integrantes.
+
+Con la de militaEn nos referimos a que tiene que militar en alguna liga obligatoriamente.
+
+Despúes tenemos una que es capacidadEstadio con minimo2000 en amateur y minimo5000 en profesional, esto marca que cualquier instancia de clubAmateur/clubProfesional tiene que tener obligatoriamente un minimo de 5000/2000 de capacidad en su estadio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Competición</IRI>
-        <Literal>Competición, cualquier conjunto o tipo de partidos que se juegan en el fútbol. En el que participan 2 o más equipos.</Literal>
+        <Literal>Competición, cualquier conjunto o tipo de partidos que se juegan en el fútbol. En el que participan 2 o más equipos.
+
+Añadimos como restricción que cada competición debe estar organizada por, minimo, una organización.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Entrenador</IRI>
+        <Literal>Tenemos una restriccion que marca que un entrenador tiene que entrenar a algun equipo.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Entrenamiento</IRI>
+        <Literal>Señalamos como restriccion que como minimo un entrenamiento debe tener 10 integrantes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -1058,8 +1499,38 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FederaciónNacional</IRI>
+        <Literal>Tenemos una restriccion que marca que cada Federación Nacional tiene que organizar como minimo una competición.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Gol</IRI>
+        <Literal>marcamos como restriccion que un gol tiene que ser marcado por exactamente un jugador.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#IncidenteDeJuego</IRI>
+        <Literal>Como restriccion señalamos que cada incidente de juego lo tiene que señalar exactamente un arbitro.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Jugador</IRI>
+        <Literal>Aqui tenemos 4 restricciones que podriamos reducir en 3, la primera y segunda son que el dorsal del jugador tiene que ser un numero entre 1 y 99. Después tenemos que un jugador tiene que jugar de un maximo de dos posiciones, y que un jugador tiene que jugar en algun club.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Lesión</IRI>
+        <Literal>Tenemos una restriccion que nos señala que cualquier Lesión tiene que ser de algún jugador.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Organización</IRI>
         <Literal>Organismo relacionado con el fútbol como puede ser un club de fútbol, o una federación o confederación, nacional o internacional.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Partido</IRI>
+        <Literal>Tenemos una restricción que señala que un partido debe ser jugado por exactamente 2 clubs.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -1071,9 +1542,19 @@
         <IRI>#Posición</IRI>
         <Literal>Posiciones de los jugadores dentro del campo.</Literal>
     </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Sustitución</IRI>
+        <Literal>Aqui señalamos como restricciones que para cada sustitución debe haber exactamente un jugador sustituido, y un jugador que sustituye.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Árbitro</IRI>
+        <Literal>Aqui como restriccion tenemos que un arbitro debe arbitrar algún partido.</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 
 
 <!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
- 
+
